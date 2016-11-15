@@ -12,6 +12,5 @@ public interface BookingRepository extends JpaRepository<DayOfCalendar, Integer>
 
     DayOfCalendar findByDate(LocalDate date);
     List<DayOfCalendar> findAllByOrderByDateAsc();
-    List<Booking> findByDate();
 
 }
