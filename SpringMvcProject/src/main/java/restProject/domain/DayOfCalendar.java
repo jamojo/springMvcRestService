@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
+
 @Entity
 @Table(name = "daysOfCalendar")
 public class DayOfCalendar {
@@ -24,7 +25,7 @@ public class DayOfCalendar {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
-    @OneToMany(mappedBy = "dayOfCalendar", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "dayOfCalendar", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Booking> meetings;
 
 

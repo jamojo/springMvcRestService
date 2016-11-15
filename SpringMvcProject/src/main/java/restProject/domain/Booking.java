@@ -29,7 +29,7 @@ public class Booking {
     private int employeeId;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dayOfCalendar")
     private DayOfCalendar dayOfCalendar;
 

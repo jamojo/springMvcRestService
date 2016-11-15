@@ -37,6 +37,16 @@ public class BookingServiceTest {
     }
 
     @Test
+    public void tempTest(){
+
+        List<Booking> bookingList = bookingRepository.findById(1);
+        for(Booking booking: bookingList){
+            System.out.println(booking.getMeetingStartTime());
+        }
+
+    }
+
+    @Test
     public void testAddBookings(){
         List<DayOfCalendar> dayOfCalendarList = Generators.getTestDayOfCalendarList();
         bookingService.addBookings(dayOfCalendarList);

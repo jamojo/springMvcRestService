@@ -3,6 +3,7 @@ package restProject.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import restProject.domain.Booking;
 import restProject.domain.DayOfCalendar;
 import restProject.repository.BookingRepository;
@@ -12,6 +13,7 @@ import java.util.List;
 
 
 @Service
+@Transactional
 public class BookingsServiceImp implements BookingService {
 
     @Autowired
@@ -38,10 +40,7 @@ public class BookingsServiceImp implements BookingService {
     }
 
     public List<DayOfCalendar> getAllBookings() {
-        List<DayOfCalendar> dayOfCalendarList = bookingRepository.findAll();
-        dayOfCalendarList.sort(
-                (DayOfCalendar o1, DayOfCalendar o2) -> o1.getDate().compareTo(o2.getDate())
-        );
+        List<DayOfCalendar> dayOfCalendarList = bookingRepository.findAllByOrderByDateAsc();
         return sortDayOfCalendarBookings(dayOfCalendarList);
     }
 
